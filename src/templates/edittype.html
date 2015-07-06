@@ -1,0 +1,32 @@
+<section class="section container-fluid">
+  
+  
+  
+<div class="scrollable" ng-controller="EditTypeForm">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Edit Media</h1>   
+   
+  <div>
+  <form role="form" ng-submit="EditType()">
+    <fieldset>
+      <!--<legend>Name</legend>-->
+        <div class="form-group has-success has-feedback">
+          <label>Type name</label>
+          <input type="text"
+					ng-model="type.name"
+                 class="form-control"
+                 placeholder="Enter name">
+        </div>
+    </fieldset>
+    <hr>
+ <input type="submit" class="btn btn-primary btn-block" id="submit" value="Submit" />
+
+
+  </form>
+  </div>
+ </div>
+</div>
+  
+</section>
+
+

@@ -1,0 +1,36 @@
+<section class="section container-fluid">
+
+
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Media list</h1>  
+  <p><a class="btn btn-primary btn-lg" href="#/addmedia" role="button">Add media</a></p> 
+   
+   
+  <div ng-controller="MediaList">
+  
+            Filter: <input type="text" data-ng-model="textfilter" />
+		
+      <div class="media" data-ng-repeat="media in mediaAll track by $index | filter : textfilter">
+          <!-- <a class="media-left" href="#">
+           <img src="..." alt="...">
+         </a>-->
+          <div class="media-body">
+              <h4 class="media-heading">{{ media.title }}</h4>
+              <ul>
+                  <li>Type: <b>{{ media.typeName }}</b></li>
+                  <li>Lent to: <b>{{ media.lentToName }}</b></li>
+                  <li><a href="#/moviedata?id={{ media.id }}">Details</a></li>
+                  <li><a href="#/editmedia?id={{ media.id }}">Edit</a></li>
+                  <li><a href="" ng-click="Delete(media.id)">Delete</a></li>
+              </ul>
+          </div>
+      </div>
+   
+  </div>
+ </div>
+</div>
+  
+  
+</section>

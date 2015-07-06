@@ -1,0 +1,33 @@
+<section class="section container-fluid">
+  
+  
+  
+<div class="scrollable" ng-controller="AddFriendForm">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Add Friend</h1>   
+   
+  <div>
+  <form role="form" ng-submit="AddFriend()">
+    <fieldset>
+      <!--<legend>Name</legend>-->
+        <div class="form-group has-success has-feedback">
+          <label>Friend name</label>
+          <input type="text"
+					ng-model="name"
+                 class="form-control"
+                 placeholder="Enter name">
+        </div>
+
+    </fieldset>
+    <hr>
+ <input type="submit" class="btn btn-primary btn-block" id="submit" value="Submit" />
+
+
+  </form>
+  </div>
+ </div>
+</div>
+  
+</section>
+
+

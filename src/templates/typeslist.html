@@ -1,0 +1,29 @@
+<section class="section container-fluid">
+
+
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Types list</h1>  
+  <p><a class="btn btn-primary btn-lg" href="#/addtype" role="button">Add type</a></p> 
+   
+   
+  <div ng-controller="TypesList">
+
+		
+  <div class="media"  data-ng-repeat="type in typesAll track by $index">
+  <div class="media-body">
+    <h4 class="media-heading">{{ type.name }}</h4>
+    <ul>
+	<li><a href="#/edittype?id={{ type.id }}">Edit</a></li>
+	<li><a href="" ng-click="Delete(type.id)">Delete</a></li>
+	</ul>
+  </div>
+</div>
+   
+  </div>
+ </div>
+</div>
+  
+  
+</section>

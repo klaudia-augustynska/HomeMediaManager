@@ -1,0 +1,19 @@
+﻿<section class="section container-fluid">
+
+<div class="scrollable">
+<div class="scrollable-content section">
+    <h1 class="page-header"> <a class="btn btn-primary btn-lg" href="#/fightresult" role="button">Fight!</a>
+    </h1>
+    <div ng-controller="FightGame">
+        <div class="media" data-ng-repeat="media in mediaAll track by $index">
+            <div class="media-body" ng-if="media.typeName == fightType">
+                <label>
+                    <input type="checkbox" ng-model="media.isChecked"/>
+                    <h4 class="media-heading">{{ media.title }} - {{ media.isChecked }}</h4>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</section>

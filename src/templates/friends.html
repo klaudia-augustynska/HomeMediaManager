@@ -1,0 +1,28 @@
+<section class="section container-fluid">
+
+
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Friends</h1>  
+  <p><a class="btn btn-primary btn-lg" href="#/addfriend" role="button">Add friend</a></p> 
+   
+   
+  <div ng-controller="FriendsList">
+		
+  <div class="media"  data-ng-repeat="friend in friendsAll track by $index">
+  <div class="media-body">
+    <h4 class="media-heading">{{ friend.name }}</h4>
+    <ul>
+	<li><a href="#/editfriend?id={{ friend.id }}">Edit</a></li>
+	<li><a href="" ng-click="Delete(friend.id)">Delete</a></li>
+	</ul>
+  </div>
+</div>
+   
+  </div>
+ </div>
+</div>
+  
+  
+</section>

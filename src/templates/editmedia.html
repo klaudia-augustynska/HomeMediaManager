@@ -1,0 +1,49 @@
+<section class="section container-fluid">
+  
+  
+  
+<div class="scrollable" ng-controller="EditMediaForm">
+ <div class="scrollable-content section">
+  <h1 class="page-header">Edit Media</h1>   
+   
+  <div>
+  <form role="form" ng-submit="EditMedia()">
+    <fieldset>
+      <!--<legend>Name</legend>-->
+        <div class="form-group has-success has-feedback">
+          <label>Name</label>
+          <input type="text"
+					ng-model="media.title"
+                 class="form-control"
+                 placeholder="Enter name">
+        </div>
+		<div class="form-group has-success has-feedback">
+          <label>Type (<a href="#/addtype">Add Type</a>)</label></label>
+
+		  <select class="form-control" ng-model="media.type">
+			<option value="{{ttt.id}}" ng-selected="{{ttt.id == media.type}}" ng-repeat="ttt in typesAll track by $index">{{ttt.name}}</option>
+		  </select>
+        </div>
+		
+		<div class="form-group has-success has-feedback">
+          <label>Lent to (<a href="#/addfriend">Add Friend</a>)</label>
+
+		  <select class="form-control" ng-model="media.lentTo">
+			<option value="0">Nobody!!!</option>
+			<option value="{{friend.id}}"  ng-selected="{{friend.id == media.lentTo}}" ng-repeat="friend in friendsAll track by $index">{{friend.name}}</option>
+		  </select>
+        </div>
+
+    </fieldset>
+    <hr>
+ <input type="submit" class="btn btn-primary btn-block" id="submit" value="Submit" />
+
+
+  </form>
+  </div>
+ </div>
+</div>
+  
+</section>
+
+
