@@ -305,7 +305,7 @@ app.controller('FightResult', function ($scope, $http) {
             //console.log($scope.mediaAll[i].title + " " + $scope.mediaAll[i].type);
             if ($scope.mediaAll[i].type == 1 && $scope.mediaAll[i].isChecked == true) {
                 $scope.tempMedia = $scope.mediaAll[i];
-                alert($scope.tempMedia.title);
+                //alert($scope.tempMedia.title);
                 //console.log("Film checked: " + i);
                     //console.log("isChecked: " + $scope.mediaAll[i].id);
                     //Mamy film zaznaczony, teraz sprawdzamy go w bazie, w zmiennej zapisujemy wynik 
