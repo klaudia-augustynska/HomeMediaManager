@@ -3,13 +3,12 @@
     <div class="scrollable">
         <div class="scrollable-content section">
             <h1 class="page-header">
-                <h1 class="page-header">And the winner is...</h1>
+                <h1 class="page-header">Best of selected movies.</h1>
             </h1>
             <div ng-controller="FightResult" data-ng-init="fight()">
                 <div class="media" data-ng-repeat="media in mediaAll track by $index">
-                   
                     <div class="media-body" ng-if="winnerId == media.id">
-                        <h4 class="media-heading">{{ media.title }} with result of {{ critics }}%.</h4>
+                        <h4 class="media-heading">{{ media.title }} with the result of {{ critics }}%.</h4>
                     </div>
                 </div>
             </div>

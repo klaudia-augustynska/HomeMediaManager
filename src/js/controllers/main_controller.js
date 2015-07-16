@@ -4,7 +4,7 @@ var moviedetailsWinner = angular.module('movies', []);
 
 app.controller('MainController', function($scope){
 
-	// initialization
+	// Initialization
 	$scope.mediaSaved = localStorage.getItem('mediaAll');
 	$scope.mediaAll = ($scope.mediaSaved != null) ? JSON.parse($scope.mediaSaved) : [ 
 		{
@@ -61,11 +61,6 @@ app.controller('MainController', function($scope){
 });
 
 app.controller('MediaList', function($scope) {
-
-
-
-	
-	
 	// join "friends" and "types" with "medias"
 	for (var i = 0; i < $scope.mediaAll.length; ++i) {
 		for (var j = 0; j < $scope.typesAll.length; ++j) {
@@ -93,8 +88,6 @@ app.controller('MediaList', function($scope) {
 		
 		localStorage.setItem('mediaAll', JSON.stringify($scope.mediaAll));
 	};
-	
-	
 
 });
 
@@ -291,9 +284,6 @@ app.controller('FightGame', function ($scope, $http) {
 
 app.controller('FightResult', function ($scope, $http) {
     $scope.fightType = "Movie";
-    //$scope.critics = 0;
-    //$scope.critics2 = 0;
-    //$scope.winnerId = 0;
     $scope.fight = function () {
         $scope.critics = 0;
         $scope.critics2 = 0;
