@@ -17,14 +17,28 @@ app.controller('MainController', function($scope){
 		{
 			id: 2,
 			title: 'Toy Story',
-			type:	2,
+			type:	1,
 			lentTo: 1,
             isChecked: false
+		},
+		{
+			id: 3,
+			title: 'Inside Out',
+			type: 1,
+			lentTo: 0,
+			isChecked: true
+		},
+		{
+			id: 4,
+			title: "Up",
+			type: 1,
+			lentTo: 1,
+			isChecked: true
 		}
 	];
 	localStorage.setItem('mediaAll', JSON.stringify($scope.mediaAll));
 	$scope.mediaLastIndexSaved = localStorage.getItem('mediaLastIndex');
-	$scope.mediaLastIndex = ($scope.mediaLastIndexSaved != null) ? JSON.parse($scope.mediaLastIndexSaved) : 2;
+	$scope.mediaLastIndex = ($scope.mediaLastIndexSaved != null) ? JSON.parse($scope.mediaLastIndexSaved) : 4;
 	localStorage.setItem('mediaLastIndex', JSON.stringify($scope.mediaLastIndex));
 	
 	//
@@ -37,12 +51,16 @@ app.controller('MainController', function($scope){
 		}, 
 		{
 			id: 2,
-			name:	'Album'
+			name:	'Music Album'
+		},
+		{
+			id: 3,
+			name:	'Tape'
 		}
 	];
 	localStorage.setItem('typesAll', JSON.stringify($scope.typesAll));
 	$scope.typesLastIndexSaved = localStorage.getItem('typesLastIndex');
-	$scope.typesLastIndex = ($scope.typesLastIndexSaved != null) ? JSON.parse($scope.typesLastIndexSaved) : 2;
+	$scope.typesLastIndex = ($scope.typesLastIndexSaved != null) ? JSON.parse($scope.typesLastIndexSaved) : 3;
 	localStorage.setItem('typesLastIndex', JSON.stringify($scope.typesLastIndex));
 	
 		
@@ -51,11 +69,15 @@ app.controller('MainController', function($scope){
 		{
 			id: 1,
 			name:	'Klaudia'
+		},
+		{
+			id: 2,
+			name:	'Pawel'
 		}
 	];
 	localStorage.setItem('friendsAll', JSON.stringify($scope.friendsAll));
 	$scope.friendsLastIndexSaved = localStorage.getItem('friendsLastIndex');
-	$scope.friendsLastIndex = ($scope.friendsLastIndexSaved != null) ? JSON.parse($scope.friendsLastIndexSaved) : 1;
+	$scope.friendsLastIndex = ($scope.friendsLastIndexSaved != null) ? JSON.parse($scope.friendsLastIndexSaved) : 2;
 	localStorage.setItem('friendsLastIndex', JSON.stringify($scope.friendsLastIndex));
   
 });
@@ -208,11 +230,8 @@ app.controller('AddFriendForm', function($scope) {
 });
 
 app.controller('EditFriendForm', function($scope) {
-
-
 	var path = location.href;
 	var editFriendId = path.substr(path.indexOf('=')+1);
-	
 	var i;
 	for (i = 0; i < $scope.friendsAll.length; ++i) {
 		if ($scope.friendsAll[i].id == editFriendId) {
@@ -241,12 +260,13 @@ app.controller('movieDetails', function($scope, $http) {
         }
     }
 
+	// Find movie on Rotten Tomatoes database
     $scope.search = function () {
             $http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/movies.json', {
                 params: {
                     apikey: 'm7jg2udfay5fpxnryaw8sz5a',
                     callback: 'JSON_CALLBACK',
-                    q: $scope.media.title, //Pobierz nazwe filmu z media ID
+                    q: $scope.media.title,
                     page_limit: '1'
                 }
             })
@@ -261,25 +281,6 @@ app.controller('movieDetails', function($scope, $http) {
 
 app.controller('FightGame', function ($scope, $http) {
     $scope.fightType = "Movie";
-
-
-    //var path = location.href;
-    //var editMediaId = path.substr(path.indexOf('=') + 1);
-
-    //var i;
-    //for (i = 0; i < $scope.mediaAll.length; ++i) {
-    //    if ($scope.mediaAll[i].id == editMediaId) {
-    //        $scope.media = $scope.mediaAll[i];
-    //        break;
-    //    }
-    //}
-
-    //$scope.EditMedia = function () {
-    //    $scope.mediaAll[i] = $scope.media;
-    //    localStorage.setItem('mediaAll', JSON.stringify($scope.mediaAll));
-    //};
-
-
 });
 
 app.controller('FightResult', function ($scope, $http) {
